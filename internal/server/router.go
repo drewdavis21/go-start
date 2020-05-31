@@ -19,6 +19,7 @@ type Router struct {
 type Route struct {
 	Endpoint string
 	Handler  http.HandlerFunc
+	Method   string
 }
 
 // BaseRouter is the base router for the server. It contains all of the routes.
@@ -41,7 +42,7 @@ func (r Router) WithService(path string, routes []Route) {
 
 // WithRoute adds a Route to the given Router.
 func (r Router) WithRoute(route Route) {
-	r.HandleFunc(route.Endpoint, route.Handler)
+	r.HandleFunc(route.Endpoint, route.Handler).Methods(http.MethodOptions, route.Method)
 }
 
 // middleware adds logging to all routes on which it is used.
