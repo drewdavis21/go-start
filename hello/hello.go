@@ -1,8 +1,8 @@
-// Package test includes a test endpoint.
-package test
+// Package hello includes a test endpoint.
+package hello
 
 import (
-	"github.com/drewdavis21/go-start/internal/server"
+	"github.com/drewdavis21/go-start/server"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 )
